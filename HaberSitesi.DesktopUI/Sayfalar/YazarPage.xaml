@@ -1,0 +1,33 @@
+﻿<Page x:Class="HaberSitesi.DesktopUI.Sayfalar.YazarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HaberSitesi.DesktopUI.Sayfalar"
+      mc:Ignorable="d" 
+      d:DesignHeight="396" d:DesignWidth="680" Background="#30336b"
+      Title="YazarPage">
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical">
+            <DataGrid Height="200" x:Name="yazar_dataGrid" SelectionChanged="yazar_dataGrid_SelectionChanged"></DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Yazar Adı" Foreground="White" FontWeight="Bold" FontSize="15px" Margin="10,5,0,0"></Label>
+            <Label Content="Yazar Soyadı" Foreground="White" FontWeight="Bold" FontSize="15px" Margin="70,5,0,0"></Label>
+            <Label Content="Yazar Fotoğrafı" Foreground="White" FontWeight="Bold" FontSize="15px" Margin="70,5,0,0"></Label>
+            <Label Content="Yazar Biyografisi" Foreground="White" FontWeight="Bold" FontSize="15px" Margin="70,5,0,0"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="adTxt" Width="100" Height="25" Background="White" Margin="10,5,0,0"></TextBlock>
+            <TextBlock x:Name="soyadTxt" Width="100" Height="25" Background="White" Margin="45,5,0,0"></TextBlock>
+            <TextBlock x:Name="fotoTxt" Width="100" Height="25" Background="White" Margin="70,5,0,0"></TextBlock>
+            <TextBlock x:Name="biyografiTxt" Width="100" Height="25" Background="White" Margin="88,5,0,0"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,50,0,0" HorizontalAlignment="Center">
+            <Button Click="Islem_Click" x:Name="kaydetBtn" Width="100px" Height="30px" Margin="10,0,0,0" Content="Kaydet"></Button>
+            <Button Click="Islem_Click" x:Name="guncelleBtn" Width="100px" Height="30px" Margin="10,0,0,0" Content="Güncelle"></Button>
+            <Button Click="Islem_Click" x:Name="silBtn" Width="100px" Height="30px" Margin="10,0,0,0" Content="Sil"></Button>
+        </StackPanel>
+    </StackPanel>
+</Page>

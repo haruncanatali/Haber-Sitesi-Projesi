@@ -1,0 +1,27 @@
+﻿@model Yazar
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <h3 class="h1" style="display:inline-block; margin-left:100px; font-family: 'Great Vibes', cursive;">Hoşgeldiniz @Model.YazarAdi @Model.YazarSoyadi<a asp-controller="Yazar" asp-action="LogOut" class="btn btn-danger btn-sm" style="display:inline-block; margin-left:730px; width:100px; margin-bottom:20px;"><span style="font-family:Arial;">Çıkış Yap</span></a></h3>
+
+</div>
+<div class="row">
+    <div class="card border-0 mt-2" style="width:80rem; margin-left:30px;">
+        <div class="card-header" style="background-color:#192a56; color:white; font-weight:bold;">
+            Yazılarım
+        </div>
+        <div class="card-body p-0 mt-2">
+            @if (Model.Yazilari.Count < 1)
+            {
+                <h3 class="alert alert-danger">Henüz yazınız yok.</h3>
+                <a asp-controller="Yazar" asp-action="YaziEkle" asp-route-id="@Model.Id" class="btn btn-primary">Hemen Yazı Ekle!</a>
+            }
+            else
+            {
+                @await Component.InvokeAsync("Yazilarim", new { id = Model.Id })
+            }
+        </div>
+    </div>
+</div>

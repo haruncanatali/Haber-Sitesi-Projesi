@@ -1,0 +1,37 @@
+﻿@model List<Haber>
+
+<table class="table table-striped table-bordered table-sm mt-2">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Haber Başlığı</th>
+            <th>Haber Ana Resim URL</th>
+            <th>Haber İçeriği</th>
+            <th>Editör</th>
+            <th>Kategori</th>
+            <th>Veritabanı İşlemleri</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id.ToString()</td>
+                <td>@item.HaberBasligi.Substring(0, 10) ...</td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img class="img-responsive" src="@item.HaberAnaResimUrl" alt="" width="100" height="70" />
+                    </div>
+                </td>
+                <td>@item.HaberIcerik.Substring(0, 20) ...</td>
+                <td>@item.Editoru.EditorAdi&nbsp;@item.Editoru.EditorSoyadi</td>
+                <td>@item.Kategorisi.KategoriAdi</td>
+                <td>
+                    <a asp-controller="Editor" asp-action="HaberGuncelle" asp-route-id="@item.Id" class="btn btn-warning btn-sm w-27" style="margin-left:5px;">Güncelle</a>
+                    <a asp-controller="Editor" asp-action="HaberSil" asp-route-id="@item.Id" class="btn btn-danger btn-sm w-25" style="margin-left:5px;">Sil</a>
+                    <a asp-controller="Editor" asp-action="HaberEkle" asp-route-id="@item.EditorId" class="btn btn-primary btn-sm w-25" style="margin-left:5px;">Ekle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

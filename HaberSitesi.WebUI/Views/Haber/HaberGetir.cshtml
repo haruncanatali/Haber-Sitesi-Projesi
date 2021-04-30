@@ -1,0 +1,55 @@
+﻿@model Haber 
+@{
+    ViewData["Title"] = "HaberGetir";
+}
+
+<div class="row d-flex justify-content-center mt-3">
+    <img class="figure-img" style="width:400px; height:300px;" src="@Model.HaberAnaResimUrl" />
+    <h4 class="text-center" style="font-weight:bold;">@Model.HaberBasligi</h4>
+    <p class="text-center">@Model.HaberTarihi.ToString().Substring(0, 10)&nbsp;-&nbsp;@Model.Editoru.EditorAdi @Model.Editoru.EditorSoyadi</p>
+    <p>@Html.Raw(Model.HaberIcerik)</p>
+    <hr />
+    <h2 class="display-2 text-center mb-2">Yorumlar</h2>
+    @foreach (var item in Model.Yorumlar)
+    {
+        <div class="card mt-3" style="width: 75%;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="media">
+                        <img class="mr-3 mb-2" style="display:inline-block;" src="https://i.pinimg.com/originals/7b/7b/c6/7b7bc658d3fce83780679e84dc62f2fa.png" height="50" width="50" alt="Generic placeholder image">
+                        <div class="media-body" style="display:inline-block; margin-left:50px;">
+                            <h5 class="mt-0">@item.Ad @item.Soyad</h5>
+                            <p>@item.Mesaj</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    }
+    <div class="row mt-4 d-flex justify-content-center mb-3">
+        <form asp-controller="Yorum" asp-action="YorumYap" method="post">
+            <div class="row">
+                <div class="col-md-4" style="margin-left:200px;">
+                    <label>Adınız</label>
+                    <input type="text" class="form-control" id="ad" name="ad" />
+                </div>
+                <div class="col-md-4">
+                    <label>Soyadınız</label>
+                    <input type="text" class="form-control" id="soyad" name="soyad" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8" style="margin-left:200px;">
+                    <label>Mesajınız</label>
+                    <textarea id="mesaj" name="mesaj" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mt-3" style="width:100px;">Gönder</button>
+                <input type="text" name="haberId" id="haberId" value="@Model.Id" hidden/>
+            </div>
+        </form>
+    </div>
+</div>
+
+

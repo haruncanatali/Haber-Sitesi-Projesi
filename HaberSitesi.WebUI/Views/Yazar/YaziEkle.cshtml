@@ -1,0 +1,57 @@
+﻿@model YaziInputModel
+@{
+    ViewData["Title"] = "YaziEkle";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+<style>
+    .ck-editor__editable {
+        min-width: 1300px;
+        min-height: 200px;
+    }
+</style>
+
+<form class="mt-1" method="post" asp-controller="Yazar" asp-action="YaziEkle">
+    <div class="row mt-2">
+        <div class="col-md-6">
+            @Html.LabelFor(c => c.YazarId, "Yazarı", new { @style = "font-weight:bold; font-size:20px;" })
+            @Html.DropDownListFor(c => c.YazarId, (List<SelectListItem>)ViewBag._yazar, new { @class = "form-control mt-2" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(c => c.YaziBasligi, "Yazı Başlığı", new { @style = "font-weight:bold; font-size:20px;" })
+            @Html.TextBoxFor(c => c.YaziBasligi, new { @class = "form-control mt-2" })
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-6">
+            @Html.LabelFor(c => c.YaziResimUrl, "Yazı Ana Fotoğrafı", new { @style = "font-weight:bold; font-size:20px;" })
+            @Html.TextBoxFor(c => c.YaziResimUrl, new { @class = "form-control mt-2" })
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row mt-1 d-flex justify-content-center">
+        <label class="text-center mt-2 mb-2" style="font-weight:bold; font-size:20px;">Yazı İçeriği</label>
+        @Html.TextAreaFor(c => c.YaziIcerigi, new { @id = "editor1" })
+        <script>
+            ClassicEditor.create(document.querySelector('#editor1'))
+                .then(editor => {
+                    editor.ui.view.editable.element.style.width = '1300px';
+                    editor.ui.view.editable.element.style.height = '200px';
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+        <button class="btn btn-primary btn-sm" type="submit" style="width:100px;">Kaydet</button>
+    </div>
+</form>
+
+<div class="text-danger" asp-validation-summary="All"></div>
+

@@ -1,0 +1,15 @@
+﻿@model List<Yazi>
+
+@foreach (var item in Model)
+{
+<div class="card p-2 border-info" style="width: 24rem; margin-left:35px;">
+    <img src="@item.YaziResimUrl" style="height:200px;" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title text-center">@item.YaziBasligi</h5>
+        <p class="text-center">@item.Yazari.YazarAdi @item.Yazari.YazarSoyadi</p>
+        <p class="card-text">@Html.Raw(@item.YaziIcerigi.Substring(0, 50)) ...</p>
+
+    </div>
+    <a class="btn btn-outline-primary btn-sm mb-0 text-center" asp-controller="Yazi" asp-action="YaziGetir" asp-route-id="@item.Id">Daha Fazla Oku</a>
+</div>
+} 

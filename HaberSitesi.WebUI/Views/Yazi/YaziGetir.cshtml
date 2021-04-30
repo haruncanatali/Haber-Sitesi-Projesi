@@ -1,0 +1,13 @@
+﻿@model Yazi 
+@{
+    ViewData["Title"] = "YaziGetir";
+}
+
+<div class="row d-flex justify-content-center">
+    <img class="rounded-circle" style="width:400px; height:300px;" src="@Model.YaziResimUrl" />
+    <h5 class="text-center mt-3">@Model.YaziBasligi</h5>
+    <p class="text-center" style="font-style:italic;">@Model.Yazari.YazarAdi&nbsp;@Model.Yazari.YazarSoyadi</p>
+    <p class="text-center" style="font-style:normal;">@Model.YaziTarihi.ToString().Substring(0,10)</p>
+    <p>@Html.Raw(Model.YaziIcerigi)</p>
+</div>
+

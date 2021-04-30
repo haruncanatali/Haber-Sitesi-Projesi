@@ -1,0 +1,51 @@
+﻿@model Haber
+@{
+    ViewData["Title"] = "HaberGuncelle";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+<style>
+    .ck-editor__editable {
+        min-width: 1300px;
+        min-height: 200px;
+    }
+</style>
+
+<form class="mt-1" method="post" asp-controller="Editor" asp-action="HaberGuncelle">
+    <div class="row mt-2">
+        <div class="col-md-6">
+            @Html.LabelFor(c => c.HaberBasligi, "Haber Başlığı", new { @style = "font-weight:bold; font-size:20px;" })
+            @Html.TextBoxFor(c => c.HaberBasligi, new { @class = "form-control mt-2" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(c => c.HaberAnaResimUrl, "Haber Ana Fotoğrafı", new { @style = "font-weight:bold; font-size:20px;" })
+            @Html.TextBoxFor(c => c.HaberAnaResimUrl, new { @class = "form-control mt-2" })
+        </div>
+    </div>
+    <div class="row mt-1 d-flex justify-content-center">
+        <label class="text-center mt-2 mb-2" style="font-weight:bold; font-size:20px;">Haber İçeriği</label>
+        @Html.TextAreaFor(c => c.HaberIcerik, new { @id = "editor1" })
+        <script>
+            ClassicEditor.create(document.querySelector('#editor1'))
+                .then(editor => {
+                    editor.ui.view.editable.element.style.width = '1300px';
+                    editor.ui.view.editable.element.style.height = '200px';
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+        <button class="btn btn-primary btn-sm" type="submit" style="width:100px;">Kaydet</button>
+    </div>
+    @Html.HiddenFor(c => c.Id)
+    @Html.HiddenFor(c => c.KategoriId)
+    @Html.HiddenFor(c => c.EditorId)
+</form>
+
+<div class="text-danger" asp-validation-summary="All"></div>
+

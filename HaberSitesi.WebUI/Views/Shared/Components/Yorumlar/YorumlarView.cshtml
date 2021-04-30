@@ -1,0 +1,17 @@
+﻿@model List<Yorum>
+
+    <div class="card border-0" style="width: 25rem;">
+        <div class="card-header" style="background-color:darkred;">
+            <span style="font-weight:bold; color:white;">Son Yapılan Yorumlar</span>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item"><a style="text-decoration:none;" asp-controller="Haber" asp-action="HaberGetir" asp-route-id="@item.HaberId">
+                    <span>
+                        @item.Ad&nbsp;@item.Soyad&nbsp;:@item.Mesaj.Substring(0,10) ......
+                    </span>
+                     </a></li>
+            }
+        </ul>
+    </div>

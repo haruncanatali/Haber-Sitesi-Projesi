@@ -1,0 +1,19 @@
+﻿<Page x:Class="HaberSitesi.DesktopUI.Sayfalar.YorumPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HaberSitesi.DesktopUI.Sayfalar"
+      mc:Ignorable="d" 
+      d:DesignHeight="396" d:DesignWidth="680" Background="#30336b"
+      Title="YorumPage">
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical">
+            <DataGrid Height="200" x:Name="yorum_dataGrid" SelectionChanged="yorum_dataGrid_SelectionChanged"></DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,50,0,0" HorizontalAlignment="Center">
+            <Button Click="Islem_Click" x:Name="silBtn" Width="100px" Height="30px" Margin="10,0,0,0" Content="Yorumu Sil"></Button>
+        </StackPanel>
+    </StackPanel>
+</Page>
