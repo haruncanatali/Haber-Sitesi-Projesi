@@ -4,10 +4,12 @@ Bu projede .net core ortamında Haber Sitesi yapılmıştır.
  1. Çok Katmanlı Mimari
  2. Nesne Yönelimli Programlama
  3. Asp.Net Core MVC
- 4. Entity Framework Core (Code First)
- 5. Ninject
- 6. Fluent Validator
- 7. CKEditör
+ 4. WPF
+ 5. Entity Framework Core (Code First)
+ 6. Ado.Net
+ 7. Ninject
+ 8. Fluent Validator
+ 9. CKEditör
 ### Projeden Görüntüler<hr>
 ![1](https://user-images.githubusercontent.com/77530565/115968741-fb269880-a541-11eb-966f-8cec8ad0750e.png)
 ![2](https://user-images.githubusercontent.com/77530565/115968742-fc57c580-a541-11eb-98d9-75d384146826.png)
@@ -17,3 +19,5 @@ Bu projede .net core ortamında Haber Sitesi yapılmıştır.
 ![6](https://user-images.githubusercontent.com/77530565/115968757-05489700-a542-11eb-9b47-b50a41d166e6.png)
 ![7](https://user-images.githubusercontent.com/77530565/115968758-05e12d80-a542-11eb-89e5-a9f3211924ee.png)
 ![8](https://user-images.githubusercontent.com/77530565/115968763-07aaf100-a542-11eb-9007-521ded4a82aa.png)
+![9](https://user-images.githubusercontent.com/77530565/116758160-2dd80180-aa18-11eb-9f65-a9127dbec304.png)
+
