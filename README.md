@@ -1,5 +1,5 @@
 ## Haber Sitesi Projesi
-Bu projede .net core ortamında Haber Sitesi yapılmıştır.
+Bu projede Asp.Net Core MVC & WPF ile haber sitesi projesi yapılmıştır.
 ### Kullanılan Araçlar ve Teknolojiler<hr>
  1. Çok Katmanlı Mimari
  2. Nesne Yönelimli Programlama
